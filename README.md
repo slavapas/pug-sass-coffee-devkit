@@ -119,34 +119,28 @@ The structure presented in this boilerplate is grouped primarily by folder conte
 
 ```
 .
-├── build/                      # Store processed/minified files - your project's deployable output
-| ├── css/
-| └──
-├── src/                        # Main folder for source files
-| ├──img/                        # Main folder for image files
-| ├── js/                         # Main folder for JS files
-| | ├── vendor/                 # Store third part library files (e.g.: jquery, bootstrap)
-| | └── main.js                 # Index JS code goes here
-| ├── styles/                     # Main folder for cascade style files
-│ | ├── modules/                # Store third party modules and initializers (e.g.: normalize, reset)
-│ | ├── variables/              # Store sass variables files
-│ | └── main.scss               # Index Sass goes here
-| ├── templates/                  # Main folder for pug template files
-| └── index.pug                   # Index pug markup goes here
-├── .bowerrc                    # Change bower library destination path from its default
-└── gulpfile.js                 # Setup Gulp tasks
-```
+├── build/          # Store processed/minified files - your project's deployable output
+| ├── css/          # Contains the concatenated/minified .css files and .map files
+│ | └── vendor/     # Store third party CSS libraries
+| ├── fonts/        # Contains font files used throughout the site
+│ | └── vendor/     # Store third party fonts
+| ├── img/          # Contains the compressed and optimized image files
+| ├── index.html    # Minified html index file
+| └── scripts/      # Contains the concatenated/minified/uglyfied .js files and .map files
+│   └── vendor/     # Store third party JavaScript libraries
+├── gulpfile.js     # Setup Gulp tasks
+├── src/            # Main folder for source files
+| ├── coffee/       # Main folder for JS files
+| | ├── vendor/     # Store third part library files [source/compiled] (e.g.: jquery, bootstrap)
+| | └── main.js     # Index JS code goes here
+| ├── img/          # Main folder for image files
+| ├── index.pug     # Index pug markup goes here
+| └── scss/         # Main folder for cascade style files
+│   ├── modules/    # Store third party modules and initializers (e.g.: normalize, reset)
+│   ├── main.scss   # Index Sass goes here
+│   └── variables/  # Store sass variables files
+└── templates/    # Main folder for pug template files
 
-### The build/ Contents
-
-```
-.
-├── build/
-    ├── img/                    # Contains the compressed and optimized image files
-    ├── css/                    # Contains the concatenated/minified .css files and .map files
-    ├── js/                     # Contains the concatenated/minified/uglyfied .js files and .map files
-    │   └── vendor/             # Store third party libraries
-    └── index.html              # Minified html index file
 ```
 
 ## The Gulp plugins
@@ -157,6 +151,7 @@ The structure presented in this boilerplate is grouped primarily by folder conte
 * [cache](https://github.com/jgable/gulp-cache) : Keeps an in-memory cache of files images so only changed images are compressed with Imagemin plugin.
 * [clean-css](https://github.com/jakubpawlowicz/clean-css) : CSS optimizer and minifier.
 * [concat](https://github.com/contra/gulp-concat) : Concatenates `.js` files into `bundle.js`.
+* [del](https://github.com/sindresorhus/del) : Deletes files and folders
 * [imagemin](https://github.com/sindresorhus/gulp-imagemin) : Minify PNG, JPEG, GIF and SVG images.
 * [notify](https://github.com/mikaelbr/gulp-notify) : Send error messages to Mac Notification Center, Linux notifications or Windows >= 8.
 * [plumber](https://github.com/floatdrop/gulp-plumber) : Prevent pipe breaking caused by errors from gulp plugins.
