@@ -77,7 +77,7 @@ $ npm install del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-s
 ```
 alternatively:
 ```bash
-$ yarn add del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save
+$ yarn add del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --dev
 ```
 ![get start demo gif](http://res.cloudinary.com/dt4qeehms/image/upload/v1494619106/boilerplate/gif1.gif)
 
@@ -85,11 +85,16 @@ Optionally, if you want to add external components and libraries, initialize `Ya
 
 ```bash
 $ yarn init
-$ yarn add jquery --save
-$ yarn add bootstrap --save
-$ yarn add font-awesome --save
+$ yarn add jquery --dev         # Absolutely required, if yarn is not used install through npm
+$ yarn add bootstrap --dev      # If bootstrap is desired
+$ yarn add bootswatch --dev     # If bootswatch templates will be used
+$ yarn add font-awesome --dev   # If font-awesome fonts are needed for the project
 ```
 
+Install jQuery without Yarn (ALTERNATIVE)
+```bash
+$ npm install jquery --save-dev # Do NOT run this if it was already installed through yarn above
+```
 ### Running Your Local Server With Gulp
 
 After the installation of all requirements and its dependencies, your local web development environment is ready to run. Setup your initial files with `gulp setup`. This command is only necessary the first time the project is set or if the build folder is deleted.
