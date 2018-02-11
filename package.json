@@ -1,0 +1,16 @@
+{
+  "name": "grocerytracker",
+  "version": "1.0.0",
+  "description": "Test project for boilerplate kit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/jaspercayne/pug-sass-coffee-boilerplate-starter-kit.git",
+  "author": "Mick Evans",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaspercayne/pug-sass-coffee-boilerplate-starter-kit/issues"
+  },
+  "homepage": "https://github.com/jaspercayne/pug-sass-coffee-boilerplate-starter-kit#readme"
+}
