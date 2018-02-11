@@ -36,18 +36,18 @@ This project is based on a simple and fast workflow focused mainly on the front-
 
 ## Optionals
 
-* [Bower](https://bower.io/)
+* [Yarn](https://yarnpkg.com/en/)
 
 ## Getting Started
 
-After [Node.js](https://nodejs.org/en/download/), [npm](https://docs.npmjs.com/getting-started/installing-node), [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) and [Bower](https://bower.io/#install-bower)(optional) installation, you can create a new project based on `pug-sass-boilerplate-starter-kit` by doing the following:
+After [Node.js](https://nodejs.org/en/download/), [npm](https://docs.npmjs.com/getting-started/installing-node), [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) and [Yarn](https://yarnpkg.com/en/)(optional) installation, you can create a new project based on `pug-sass-boilerplate-starter-kit` by doing the following:
 
 ### Install From Source
 
 First, clone the project:
 
 ```bash
-$ git clone https://github.com/Errec/pug-sass-boilerplate-starter-kit.git <my-project-name>
+$ git clone https://github.com/jaspercayne/pug-sass-coffee-boilerplate-starter-kit.git <my-project-name>
 ```
 
 Initialize `npm` on `<my-project-name>` directory
@@ -56,27 +56,38 @@ Initialize `npm` on `<my-project-name>` directory
 $ cd <my-project-name>
 $ npm init
 ```
+and optionally
+```bash
+$ yarn init
+```
 
 Install `Gulp` locally
 
 ```bash
-$ sudo npm install gulp --save-dev
+$ npm install gulp --save-dev
 ```
-
+or
+```bash
+$ yarn add gulp --dev
+```
 Finally, install `Gulp` required dependencies
 
 ```bash
-$ sudo npm install gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save-dev
+$ npm install del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save-dev
 ```
-
+alternatively:
+```bash
+$ yarn add del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save
+```
 ![get start demo gif](http://res.cloudinary.com/dt4qeehms/image/upload/v1494619106/boilerplate/gif1.gif)
 
-Optionally, if you want to add external components and libraries, initialize `Bower` and install the dependencies to be used in your next project (e.g.: jQuery, Bootstrap, Modernizer).
+Optionally, if you want to add external components and libraries, initialize `Yarn` and install the dependencies to be used in your next project (e.g.: jQuery, Bootstrap, Modernizer).
 
 ```bash
-$ bower init
-$ bower install jquery --save
-$ bower install bootstrap --save
+$ yarn init
+$ yarn add jquery --save
+$ yarn add bootstrap --save
+$ yarn add font-awesome --save
 ```
 
 ### Running Your Local Server With Gulp
@@ -104,18 +115,21 @@ The structure presented in this boilerplate is grouped primarily by folder conte
 ```
 .
 ├── build/                      # Store processed/minified files - your project's deployable output
-├── img/                        # Main folder for image files
-├── js/                         # Main folder for JS files
-│   ├── vendor/                 # Store third part library files (e.g.: jquery, bootstrap)
-│   └── main.js                 # Index JS code goes here
-├── styles/                     # Main folder for cascade style files
-│   ├── modules/                # Store third party modules and initializers (e.g.: normalize, reset)
-│   ├── variables/              # Store sass variables files
-│   └── main.scss               # Index Sass goes here
-├── templates/                  # Main folder for pug template files
+| ├── css/
+| └──
+├── src/                        # Main folder for source files
+| ├──img/                        # Main folder for image files
+| ├── js/                         # Main folder for JS files
+| | ├── vendor/                 # Store third part library files (e.g.: jquery, bootstrap)
+| | └── main.js                 # Index JS code goes here
+| ├── styles/                     # Main folder for cascade style files
+│ | ├── modules/                # Store third party modules and initializers (e.g.: normalize, reset)
+│ | ├── variables/              # Store sass variables files
+│ | └── main.scss               # Index Sass goes here
+| ├── templates/                  # Main folder for pug template files
+| └── index.pug                   # Index pug markup goes here
 ├── .bowerrc                    # Change bower library destination path from its default
-├── gulpfile.js                 # Setup Gulp tasks
-└── index.pug                   # Index pug markup goes here
+└── gulpfile.js                 # Setup Gulp tasks
 ```
 
 ### The build/ Contents
