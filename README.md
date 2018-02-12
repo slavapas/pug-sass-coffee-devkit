@@ -1,8 +1,8 @@
-<a><img src="http://res.cloudinary.com/dt4qeehms/image/upload/v1494509335/logo_njvnrz.png" height="300" align="right"></a>
+/*<a><img src="http://res.cloudinary.com/dt4qeehms/image/upload/v1494509335/logo_njvnrz.png" height="300" align="right"></a>*/
 
-# Pug-Sass Boilerplate Starter Kit
+# Pug-Sass-Coffee DevKit
 
-Pug-Sass Boilerplate Starter Kit is a Front-end web kit and boilerplate for building web apps or small sites using Pug(Jade) and Sass
+Pug-Sass-Coffee DevKit is a Front-end web kit and boilerplate for building web apps or small sites using Pug, Sass, and Coffeescript
 
 ## Inspiration
 
@@ -15,14 +15,20 @@ This project is based on a simple and fast workflow focused mainly on the front-
 
 ## Features
 
-  * Pug-Sass ready.
+  * Pug
+  * Sass
+  * Coffeescript
+  * Sourcemaps
+  * Bootswatch support
   * Easy to deploy your production files
   * Performance optimization: minify and concatenate JavaScript, CSS, HTML and images
   * Live browser reloading with `BrowserSync`
+    * Includes automatic css injection using `gulp watch`
   * Includes:
     * [`Normalize.css`](https://necolas.github.com/normalize.css/) for CSS normalizations and common bug fixes
-    * [`jQuery`](https://jquery.com/) via CDN and Bower installation
-    * [`Bootstrap`](http://getbootstrap.com/) via CDN and Bower installation
+    * [`jQuery`](https://jquery.com/) via CDN and Yarn installation
+    * [`Bootstrap`](http://getbootstrap.com/) via CDN and Yarn installation
+    * [`Font Awesome`](https://fontawesome.com/) via CDN and Yarn installation
     * [`html5shiv`](https://github.com/aFarkas/html5shiv) via CDN
     * [`Respond`](https://github.com/scottjehl/Respond) via CDN
     * [`gulpfile.js`](http://gulpjs.com/) with Gulp presets
@@ -30,13 +36,14 @@ This project is based on a simple and fast workflow focused mainly on the front-
 
 ## Requirements
 
-* [Node.js](https://nodejs.org)
-* [npm](https://www.npmjs.com)
-* [Gulp](http://gulpjs.com/)
+* [Node.js](https://nodejs.org) ``
+* [npm](https://www.npmjs.com) ``
+* [Gulp](http://gulpjs.com/) `npm install gulp --save-dev`
 
 ## Optionals
 
-* [Yarn](https://yarnpkg.com/en/)
+* [Yarn](https://yarnpkg.com/en/) `npm install yarn --save-dev`
+
 
 ## Getting Started
 
@@ -72,28 +79,32 @@ $ yarn add gulp --dev
 ```
 Finally, install `Gulp` required dependencies
 
-```bash
-$ npm install del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save-dev
-```
-alternatively:
+
 ```bash
 $ yarn add del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --dev
 ```
+alternatively:
+```bash
+$ npm install del gulp-uglify browser-sync gulp-plumber gulp-autoprefixer gulp-sass gulp-pug gulp-imagemin gulp-cache gulp-clean-css gulp-sourcemaps gulp-concat beeper gulp-util gulp-rename gulp-notify --save-dev
+```
+
 ![get start demo gif](http://res.cloudinary.com/dt4qeehms/image/upload/v1494619106/boilerplate/gif1.gif)
 
 Optionally, if you want to add external components and libraries, initialize `Yarn` and install the dependencies to be used in your next project (e.g.: jQuery, Bootstrap, Modernizer).
 
 ```bash
 $ yarn init
-$ yarn add jquery --dev         # Absolutely required, if yarn is not used install through npm
-$ yarn add bootstrap --dev      # If bootstrap is desired
-$ yarn add bootswatch --dev     # If bootswatch templates will be used
-$ yarn add font-awesome --dev   # If font-awesome fonts are needed for the project
+$ yarn add jquery --dev                 # Absolutely required, if yarn is not used install through npm
+$ yarn add bootstrap --dev              # If bootstrap is desired
+$ yarn add bootswatch --dev             # If bootswatch templates will be used
+$ yarn add font-awesome --dev           # If font-awesome fonts are needed for the project
 ```
-
-Install jQuery without Yarn (ALTERNATIVE)
+ALTERNATIVE Without Yarn:
 ```bash
-$ npm install jquery --save-dev # Do NOT run this if it was already installed through yarn above
+$ npm install jquery --save-dev         # Do NOT run this if it was already installed through yarn above
+$ npm install bootstrap --save-dev      # If bootstrap is desired
+$ npm install bootswatch --save-dev     # If bootswatch templates will be used
+$ npm install font-awesome --save-dev   # If font-awesome fonts are needed for the project
 ```
 ### Running Your Local Server With Gulp
 
@@ -119,28 +130,34 @@ The structure presented in this boilerplate is grouped primarily by folder conte
 
 ```
 .
-├── build/          # Store processed/minified files - your project's deployable output
-| ├── css/          # Contains the concatenated/minified .css files and .map files
-│ | └── vendor/     # Store third party CSS libraries
-| ├── fonts/        # Contains font files used throughout the site
-│ | └── vendor/     # Store third party fonts
-| ├── img/          # Contains the compressed and optimized image files
-| ├── index.html    # Minified html index file
-| └── scripts/      # Contains the concatenated/minified/uglyfied .js files and .map files
-│   └── vendor/     # Store third party JavaScript libraries
-├── gulpfile.js     # Setup Gulp tasks
-├── src/            # Main folder for source files
-| ├── coffee/       # Main folder for JS files
-| | ├── vendor/     # Store third part library files [source/compiled] (e.g.: jquery, bootstrap)
-| | └── main.js     # Index JS code goes here
-| ├── img/          # Main folder for image files
-| ├── index.pug     # Index pug markup goes here
-| └── scss/         # Main folder for cascade style files
-│   ├── modules/    # Store third party modules and initializers (e.g.: normalize, reset)
-│   ├── main.scss   # Index Sass goes here
-│   └── variables/  # Store sass variables files
-└── templates/      # Main folder for pug template files
-
+├── build/                  # Store processed/minified files and sourcemaps - your project's optimized and compiled code
+| ├── css/                  # Contains the concatenated/minified .css files and .map files
+│ | └── vendor/             # Store third party CSS libraries
+│     └── bootstrap/        # Local Bootstrap fallback
+| ├── fonts/                # Contains font files used throughout the site
+│ | └── vendor/             # Store third party fonts
+│ |   └── font-awesome/     # Local Font Awesome fallback
+| ├── img/                  # Contains the compressed and optimized image files
+| ├── index.html            # Minified html index file
+| └── scripts/              # Contains the concatenated/minified/uglyfied .js files and .map files
+│   └── vendor/             # Store third party JavaScript libraries
+│     └── jquery/           # Local jQuery fallback
+├── src/                    # Place all your source files in this directory, everything contained within will be processed
+| ├── css/                  # Main folder for CSS files
+| | ├── scss/               # Sass source files go in this folder
+| | ├── modules/            # Store third party modules and initializers (e.g.: normalize, reset)
+| | ├── main.scss           # Index.html source goes here
+| | └── variables/          # Store sass variables files
+| ├── fonts/                # Local font files go here
+| ├── img/                  # Main folder for image files
+| ├── js/                   # Main folder for JavaScript files
+| | ├── coffee/             # Coffeescript source files go in this folder
+| | └── main.js             # Index JS code goes here
+| | └── vendor/             # Store third party library files [source/compiled] (e.g.: jquery, bootstrap)
+| ├── templates/            # Main folder for pug template files
+| └── index.pug             # Index.html source
+├── gulpfile.js             # Setup Gulp tasks
+└── README.md               # This document that you are reading right now
 ```
 
 ## The Gulp plugins
